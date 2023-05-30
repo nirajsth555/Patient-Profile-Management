@@ -2,11 +2,11 @@ const express = require('express');
 const errorHandlerMiddleware = require("./middleware/errorHandler");
 const app = express();
 
-const userRoutes = require("./routes/User/index");
+const routes = require("./routes/index");
 
 app.use(express.json());
 
-app.use('/users', userRoutes);
+app.use('/api', routes);
 
 app.use(errorHandlerMiddleware);
 
