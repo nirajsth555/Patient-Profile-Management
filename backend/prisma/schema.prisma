@@ -28,6 +28,7 @@ model Patient {
   date_of_birth           String
   address                 String?
   needs_special_attention Boolean          @default(false)
+  image                   String?
   allergies               PatientAllergy[]
 }
 
