@@ -1,9 +1,7 @@
 const { error } = require("../helpers/constants");
 const { createPatient, getPatients, getUniquePatient, updatePatientById, deletePatientById } = require("../models/PatientModel")
-
 const storePatient = async (payload) => {
     try {
-        console.log('I am here');
         const { email } = payload;
         let checkExistingUser;
         try {
@@ -40,11 +38,16 @@ const patientDetailById = async (patientId) => {
 
 const updatePatient = async (patientId, payload) => {
     try {
+        const { needs_special_attention } = payload;
+        const data = {
+            ...payload,
+            needs_special_attention: (needs_special_attention === "true" || needs_special_attention === "TRUE" || needs_special_attention === "1") ? true : false,
+        };
         const patient = await getUniquePatient({ id: patientId });
         if (!patient) {
             throw new Error(error.PATIENT_NOT_FOUND);
         }
-        const updatedPatient = updatePatientById(patientId, payload);
+        const updatedPatient = updatePatientById(patientId, data);
         return updatedPatient;
     } catch (err) {
         throw err;

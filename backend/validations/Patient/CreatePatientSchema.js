@@ -7,7 +7,8 @@ const createPatientSchema = yup.object({
     contact: yup.string().required(),
     address: yup.string(),
     needs_special_attention: yup.bool(),
-    allergies: yup.array().of(yup.number().integer())
+    allergies: yup.array().of(yup.number().integer()),
+    fileURL: yup.string()
 });
 
 module.exports = createPatientSchema;
