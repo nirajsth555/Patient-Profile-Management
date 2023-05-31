@@ -1,6 +1,6 @@
 const { createUser, findUser } = require('../models/UserModel');
-const bcrypt = require('bcrypt');
 const { error } = require("../helpers/constants");
+const { encrypt } = require('../helpers/bcrypt');
 
 module.exports = {
     createUser: async (data) => {
@@ -10,7 +10,7 @@ module.exports = {
             try {
                 checkExistingUser = await findUser({ email });
             } catch (error) {
-                const hashedPassword = await bcrypt.hash(password, 10);
+                const hashedPassword = await encrypt(password);
                 const user = await createUser({ name, email, password: hashedPassword });
                 return user;
             }
