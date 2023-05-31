@@ -5,6 +5,9 @@ module.exports = {
 
         ALLERGY_NOT_FOUND: "Allergy not found",
 
+        PATIENT_NOT_FOUND: "Patient not found",
+        PATIENT_EMAIL_EXIST: "Patient already exists with this email",
+
         VALIDATION_FAILED: "Validation failed",
     },
     code: {
@@ -23,6 +26,12 @@ module.exports = {
         ALLERGIES_LISTED: "List of allergy",
         ALLERGY_DETAIL: "Allergy detail",
         ALLERGY_UPDATED: "Allergy detail updated",
-        ALLERGY_DELETED: "Allergy deleted successfully"
+        ALLERGY_DELETED: "Allergy deleted successfully",
+
+        PATIENTS_LISTED: "List of patient",
+        PATIENT_CREATED: "Patient created successfully",
+        PATIENT_DETAIL: "Patient detail",
+        PATIENT_UPDATED: "Patient detail updated",
+        PATIENT_DELETED: "Patient deleted successfully"
     }
 }
