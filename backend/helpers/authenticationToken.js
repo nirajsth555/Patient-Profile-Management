@@ -38,7 +38,7 @@ const validateAccessToken = (accessToken) => {
         jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET);
         return true;
     } catch (err) {
-        if (err.name === "TokenExpiredError") {
+        if (err?.name === "TokenExpiredError") {
             throw new Error(error.ACCESS_TOKEN_EXPIRED)
         }
         throw new Error(error.INVALID_ACCESS_TOKEN)
