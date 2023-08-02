@@ -11,8 +11,12 @@ export default function Login() {
         onSuccess: () => {
             console.log('success')
         },
-        onError: () => {
-            console.log('error')
+        onError: (err: any) => {
+            if (err?.response?.status === 404) {
+                console.log('user not found')
+            }
+            console.log("Internal Server Error")
+            // console.log('error')
         }
     })
 
